@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Form Example</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="py-5 text-center bg-secondary text-white">
+            <h2>Image Uploader  website</h2>
+
+              <form action="" method="post" enctype = "multipart/form-data">
+
+                {% csrf_token %} <!--Eske bina ye hame error de dega-->
+                {{form}}
+                <input type="submit" class =" btn btn-danger" value="upload">
+        </form>
+        </div>
+        <div class="row">
+            {% for x in img  %}
+            <div class="col-sm-4">
+                <div class="card m-2">
+                    <img src="{{x.image.url}}" alt="" class ="card-img-top " height = "200px">
+                    <h1>{{x.date}}</h1>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
